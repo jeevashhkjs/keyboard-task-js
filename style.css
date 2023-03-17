@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#408fff;
+    --secondary-color:#081a32;
+}
+.general{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.userOutputs {
+    border: solid 2px var(--primary-color);
+    height: 150px;
+    width: 90%;
+    margin-left: 69px;
+    margin-top: 25px;
+}
+.AllButtons {
+    margin-top: 30px;
+    margin-left: 113px;
+}
+button {
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    padding: 15px 20px;
+    font-size: 20px;
+    border: solid 2px pink;
+    height: 60px;
+    width: 64px;
+    margin-left: 8px;
+}
+button.bsp {
+    width: 130px;
+}
+button.tab {
+    width: 110px;
+}
+button.slash {
+    width: 100px;
+}
+button.backtik {
+    width: 80px;
+}
+.column2 {
+    margin-top: 5px;
+}
+button.cpl {
+    width: 132px;
+}
+button.enter {
+    width: 154px;
+}
+.column3 {
+    margin-top: 5px;
+}
+button.shift {
+    width: 181px;
+    margin-top: 15px;
+}
+.column4 {
+    margin-top: -10px;
+}
+.column5 {
+    margin-top: 5px;
+}
+button.com,button.at {
+    width: 170px;
+}
+button.space {
+    width: 771px;
+}
+.actives{
+    background-color: lightgreen;
+}
+
+button:active{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
