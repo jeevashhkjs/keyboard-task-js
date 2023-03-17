@@ -31,6 +31,7 @@ button {
     height: 60px;
     width: 64px;
     margin-left: 8px;
+    box-shadow: 5px 5px 5px 2px grey;
 }
 button.bsp {
     width: 130px;
@@ -45,7 +46,7 @@ button.backtik {
     width: 80px;
 }
 .column2 {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 button.cpl {
     width: 132px;
@@ -54,17 +55,17 @@ button.enter {
     width: 154px;
 }
 .column3 {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 button.shift {
     width: 181px;
     margin-top: 15px;
 }
 .column4 {
-    margin-top: -10px;
+    margin-top: 0px;
 }
 .column5 {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 button.com,button.at {
     width: 170px;
@@ -77,6 +78,11 @@ button.space {
 }
 
 button:active{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.showClicked{
     color: var(--primary-color);
     background-color: var(--secondary-color);
 }

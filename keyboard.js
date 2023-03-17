@@ -1,9 +1,8 @@
 //output
 let output = document.querySelector("#userInputs")
-
 //all Buttons
 let buttons = document.querySelectorAll("button")
-
+let emoj = document.querySelector(".emojs")
 let cpl = document.querySelector(".cpl")
 
 //Alternative buttons
@@ -46,8 +45,25 @@ for(let i=0;i<buttons.length;i++){
     })
 }
 
+output.addEventListener("keydown",(e)=>{
+    filterValue = e.key.toLowerCase()
+    for(let j=0;j<buttons.length;j++){
+        let buttonsText = buttons[j].innerText.toLowerCase()
+        if(filterValue == buttonsText){
+            buttons[j].classList.add("showClicked")
+        }
+    }
+})
 
-
+output.addEventListener("keyup",(e)=>{
+    filterValue = e.key.toLowerCase()
+    for(let j=0;j<buttons.length;j++){
+        let buttonsText = buttons[j].innerText.toLowerCase()
+        if(filterValue == buttonsText){
+            buttons[j].classList.remove("showClicked")
+        }
+    }
+})
 
 
 // A	65
