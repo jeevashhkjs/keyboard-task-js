@@ -10,27 +10,28 @@ let shiftKey1 = document.querySelector(".shft1")
 let shiftKey2 = document.querySelector(".shft2")
 let space = document.querySelector(".space")
 
-let sun = document.querySelector(".sun")
-let moon = document.querySelector(".moon")
-moon.classList.add("showIc")
+let sun = document.querySelector(".moon")
+
+sun.classList.add("showIc")
 sun.addEventListener("click",()=>{
-    sun.classList.remove("showIc")
-    moon.classList.add("showIc")
+    if(sun.classList.contains("fa-sun")){
+        sun.classList.remove("fa-sun")
+        sun.classList.add("fa-moon")
+    }
+    else{
+        sun.classList.remove("fa-moon")
+        sun.classList.add("fa-sun")
+    }
+    darkMode()
 })
 
-moon.addEventListener("click",()=>{
-    moon.classList.remove("showIc")
-    sun.classList.add("showIc")
-})
-let icons = document.querySelectorAll("i")
-for(let i=0;i<icons.length;i++){
-    icons[i].addEventListener("click",()=>{
-        if(icons[i].classList.contains("sun")){
-            document.querySelector(":root").classList.remove("darkmode")
-        }else{
-            document.querySelector(":root").classList.add("darkmode")
-        }
-    })
+function darkMode(){
+    if(sun.classList.contains("fa-sun")){
+        document.querySelector(":root").classList.add("darkmode")
+    }
+    else{
+        document.querySelector(":root").classList.remove("darkmode")
+    }
 }
 
 
@@ -66,26 +67,9 @@ for (let i = 0; i < buttons.length; i++) {
         else if (buttons[i].classList.contains("tab")) {
             output.value += "    "
         }
-        else if (buttons[i].classList.contains("shft1")) {
-            buttons[i].classList.add("showClicked")
-            setTime(buttons[i])
-            ShiftcapsLock(buttons[i])
-            changeKys(buttons[i])
-            if(shiftKey2.classList.contains("actives")){
-                shiftKey1.classList.remove("actives")
-                shiftKey2.classList.remove("actives")
-            }
-
-        }
-        else if (buttons[i].classList.contains("shft2")) {
-            buttons[i].classList.add("showClicked")
-            setTime(buttons[i])
-            ShiftcapsLock(buttons[i])
-            changeKys(buttons[i])
-            if(shiftKey1.classList.contains("actives")){
-                shiftKey1.classList.remove("actives")
-                shiftKey2.classList.remove("actives")
-            }
+        else if (buttons[i].classList.contains("shift")) {
+            let element = e.target
+            ShiftcapsLock(element)           
         }
         else {
             output.value += e.target.innerText
@@ -116,12 +100,10 @@ window.addEventListener("keydown", (e) => {
         capsLocks(cpl)
     }
     else if (e.location === KeyboardEvent.DOM_KEY_LOCATION_LEFT && e.keyCode == 16) {
-        capsLocks(shiftKey1)
-        changeKys(shiftKey1)
+        ShiftcapsLock(shiftKey1) 
     }
     else if (e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT && e.keyCode == 16) {
-        capsLocks(shiftKey2)
-        changeKys(shiftKey2)
+        ShiftcapsLock(shiftKey2) 
     }
     else if(e.keyCode == 32){
         output.value += " "
@@ -161,8 +143,39 @@ function deleteBtn() {
 
 
 
-function ShiftcapsLock(getTargetElement){
+function ShiftcapsLock(eleMent){
+    eleMent.classList.toggle("actives")
+    eleMent.classList.add("showClicked")
+    setTime(eleMent)
+    if(shiftKey1.classList.contains("actives") && shiftKey2.classList.contains("actives")){
+        shiftKey1.classList.remove("actives")
+        shiftKey2.classList.remove("actives")
+    }
 
+    if((shiftKey1.classList.contains("actives") || shiftKey2.classList.contains("actives"))){
+
+        for(let k=0;k<buttons.length;k++){
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+                buttons[k].innerText = buttons[k].innerText.toUpperCase()
+            }
+        }
+        for(let i=0;i<changeKeys.length;i++){
+            changeKeys[i].innerText = shiftKeys[i]
+        }
+
+    }
+    else if(!(shiftKey1.classList.contains("actives") || shiftKey2.classList.contains("actives"))){
+        
+        for(let k=0;k<buttons.length;k++){
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText !=    "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+                buttons[k].innerText = buttons[k].innerText.toLowerCase()
+            }
+        }
+        for(let i=0;i<changeKeys.length;i++){
+            changeKeys[i].innerText = DefaultKeys[i]
+        }
+
+    }
 }
 
 function capsLocks(diff) {
@@ -186,47 +199,3 @@ function disable() {
     return false;
     } 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function ShiftcapsLock(getTargetElement){
-//     getTargetElement.classList.toggle("actives")
-
-//         if(shiftKey1.classList.contains("actives") && shiftKey2.classList.contains("actives")){
-//             for(let k=0;k<buttons.length;k++){
-//                 if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
-//                     buttons[k].innerText = buttons[k].innerText.toLowerCase()
-//                 }
-//             }
-//             for(let i=0;i<changeKeys.length;i++){
-//                 changeKeys[i].innerText = DefaultKeys[i]
-//             }
-//         }
-//         else{
-//             for(let k=0;k<buttons.length;k++){
-//                 if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
-//                     buttons[k].innerText = buttons[k].innerText.toUpperCase()
-//                 }
-//             }
-//             for(let i=0;i<changeKeys.length;i++){
-//                 changeKeys[i].innerText = shiftKeys[i]
-//             }
-//         }
-//     }
