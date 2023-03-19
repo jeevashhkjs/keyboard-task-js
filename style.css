@@ -7,16 +7,22 @@
     --primary-color:#408fff;
     --secondary-color:#081a32;
 }
+.darkmode{
+    --primary-color:black;
+    --secondary-color:white;   
+}
+body{
+    background-color:var(--primary-color);
+}
 .general{
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
 .userOutputs {
-    border: solid 2px var(--primary-color);
+    border: solid 2px var(--secondary-color);
     height: 150px;
     width: 90%;
     margin-left: 69px;
-    margin-top: 25px;
 }
 .AllButtons {
     margin-top: 30px;
@@ -25,8 +31,10 @@
 button {
     border-radius: 6px;
     background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 15px 20px;
     font-size: 20px;
+    outline: none;
     border: solid 2px pink;
     height: 60px;
     width: 64px;
@@ -85,4 +93,21 @@ button:active{
 .showClicked{
     color: var(--primary-color);
     background-color: var(--secondary-color);
+}
+i{
+    font-size: 43px;
+    color: white;
+} 
+.icons {
+    margin-bottom: 26px;
+    text-align: center;
+    margin-top: 16px;
+    margin-left: 1251px;
+}
+
+.showIc{
+    opacity: 1;
+}
+i{
+    opacity: 0;
 }
