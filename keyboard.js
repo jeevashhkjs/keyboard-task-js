@@ -11,8 +11,51 @@ let shiftKey2 = document.querySelector(".shft2")
 let space = document.querySelector(".space")
 
 let sun = document.querySelector(".moon")
+let emojParent = document.querySelector(".parent")
+let emojsTag = document.querySelector(".emojs")
 
-sun.classList.add("showIc")
+let atSymbol = document.querySelector(".at")
+
+emojParent.style.display = "none"
+atSymbol.addEventListener("mouseover",()=>{
+    emojParent.style.display = "block"
+
+    emojParent.addEventListener("mouseover",()=>{
+        emojParent.style.display = "block"
+    })
+    emojParent.addEventListener("mouseout",()=>{
+        emojParent.style.display = "none"
+    })
+
+})
+atSymbol.addEventListener("mouseout",()=>{
+    emojParent.style.display = "none"
+})
+
+let emojs = [
+    '&#128512', '&#128513', '&#128514',
+    '&#128515', '&#128516', '&#128517',
+    '&#128518', '&#128519', '&#128520',
+    '&#128521', '&#128522', '&#128523',
+    '&#128524', '&#128525', '&#128526',
+    '&#128527', '&#128528', '&#128529',
+    '&#128530', '&#128531', '&#128532',
+    '&#128533', '&#128534', '&#128535',
+    '&#128536', '&#128537', '&#128538',
+    '&#128539', '&#128540','&#128542'
+  ]
+
+  for(let k=0;k<emojs.length;k++){
+    let createPara = document.createElement("p")
+    createPara.setAttribute("id","emoj")
+    createPara.innerHTML = emojs[k]
+    emojsTag.append(createPara)
+    createPara.addEventListener("click",(e)=>{
+        output.value +=  e.target.innerText
+    })
+  }
+
+    sun.classList.add("showIc")
 sun.addEventListener("click",()=>{
     if(sun.classList.contains("fa-sun")){
         sun.classList.remove("fa-sun")
@@ -70,6 +113,8 @@ for (let i = 0; i < buttons.length; i++) {
         else if (buttons[i].classList.contains("shift")) {
             let element = e.target
             ShiftcapsLock(element)           
+        }else if(buttons[i].innerText == "Emojs"){
+            output.value += ""
         }
         else {
             output.value += e.target.innerText
@@ -155,7 +200,7 @@ function ShiftcapsLock(eleMent){
     if((shiftKey1.classList.contains("actives") || shiftKey2.classList.contains("actives"))){
 
         for(let k=0;k<buttons.length;k++){
-            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com" && buttons[k].innerText != "Emojs") {
                 buttons[k].innerText = buttons[k].innerText.toUpperCase()
             }
         }
@@ -167,7 +212,7 @@ function ShiftcapsLock(eleMent){
     else if(!(shiftKey1.classList.contains("actives") || shiftKey2.classList.contains("actives"))){
         
         for(let k=0;k<buttons.length;k++){
-            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText !=    "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText !=    "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com" && buttons[k].innerText != "Emojs") {
                 buttons[k].innerText = buttons[k].innerText.toLowerCase()
             }
         }
@@ -182,11 +227,11 @@ function capsLocks(diff) {
     diff.classList.toggle("actives")
     for (let k = 0; k < buttons.length; k++) {
         if (diff.classList.contains("actives")) {
-            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com" && buttons[k].innerText != "Emojs") {
                 buttons[k].innerText = buttons[k].innerText.toUpperCase()
             }
         } else {
-            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com") {
+            if (buttons[k].innerText != "CapsLock" && buttons[k].innerText != "Backspace" && buttons[k].innerText != "Tab" && buttons[k].innerText != "Enter" && buttons[k].innerText != "Shift" && buttons[k].innerText != "Space" && buttons[k].innerText != "com" && buttons[k].innerText != "Emojs") {
                 buttons[k].innerText = buttons[k].innerText.toLowerCase()
             }
         }
@@ -199,3 +244,7 @@ function disable() {
     return false;
     } 
 }
+
+
+
+

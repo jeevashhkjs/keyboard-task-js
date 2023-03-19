@@ -6,10 +6,12 @@
 :root{
     --primary-color:#408fff;
     --secondary-color:#081a32;
+    --teriary-color:#004db3;
 }
 .darkmode{
     --primary-color:black;
-    --secondary-color:white;   
+    --secondary-color:white;  
+    --teriary-color:#c8e0ff; 
 }
 body{
     background-color:var(--primary-color);
@@ -23,6 +25,9 @@ body{
     height: 150px;
     width: 90%;
     margin-left: 69px;
+    padding-left: 9px;
+    padding-top: 8px;
+    font-size: 20px;
 }
 .AllButtons {
     margin-top: 30px;
@@ -110,4 +115,29 @@ i{
 }
 i{
     opacity: 0;
+}
+.emojs{
+    display: flex;
+    gap: 3px;
+    width: 243px;
+    background-color: var(--teriary-color);
+    flex-wrap: wrap;
+    border-radius: 11px;
+    position: absolute;
+    right: 74px;
+    bottom: 58px;
+}
+#emoj {
+    padding: 7px 6px;
+    width: 38px;
+    cursor: pointer;
+}
+.parent{
+    position: relative;
+}
+.showEmoj{
+    display: block;
+}
+.at{
+    cursor: pointer;
 }
