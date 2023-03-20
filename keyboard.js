@@ -1,6 +1,6 @@
 //output
 let output = document.querySelector("#userInputs")
-// output.disabled = true
+
 //all Buttons
 let buttons = document.querySelectorAll("button")
 console.log(buttons.length)
@@ -186,7 +186,6 @@ function changeKys(getKeyElement) {
     }
 }
 
-
 function setTime(targeter) {
     setTimeout(() => {
         targeter.classList.remove("showClicked")
@@ -256,9 +255,4 @@ function disable() {
     return false;
     } 
 }
-
-
-// for(let i=0;i<changeKeys.length;i++){
-//     changeKeys[i].innerText = shiftKeys[i]
-// }
 
