@@ -3,6 +3,7 @@ let output = document.querySelector("#userInputs")
 // output.disabled = true
 //all Buttons
 let buttons = document.querySelectorAll("button")
+console.log(buttons.length)
 
 let cpl = document.querySelector(".cpl")
 let shiftKeysBtn = document.querySelectorAll(".shift")
@@ -81,6 +82,19 @@ function darkMode(){
 let shiftKeys = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|", ":", '" "', "<", ">", "?"]
 let DefaultKeys = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', "'", ',', '.', '/']
 
+let tamilKeys = [ 'அ', 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ', 'எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ', 'ஃ', 'க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ற', 'ல', 'ள', 'ழ', 'வ', 'ன', 'ஜ', 'ஶ', 'ஷ', 'ஸ', 'ஹ', 'க்ஷ', 'ா', 'ி', 'ீ', 'ு', 'ூ', 'ெ', 'ே', 'ை', 'ொ', 'ோ', 'ௌ', '்']
+
+
+
+
+
+
+
+
+
+
+
+
 function shiftChangeKey() {
     for (let i = 0; i < buttons.length; i++) {
         if (!(buttons[i].innerText.match((/^[A-Za-z]+$/)))) {
@@ -100,6 +114,7 @@ for (let i = 0; i < buttons.length; i++) {
         }
         else if (buttons[i].classList.contains("cpl")) {
             capsLocks(cpl)
+            
         }
         else if (buttons[i].classList.contains("enter")) {
             output.value += "\n"
@@ -171,9 +186,6 @@ function changeKys(getKeyElement) {
     }
 }
 
-for(let i=0;i<changeKeys.length;i++){
-    changeKeys[i].innerText = shiftKeys[i]
-}
 
 function setTime(targeter) {
     setTimeout(() => {
@@ -246,5 +258,7 @@ function disable() {
 }
 
 
-
+// for(let i=0;i<changeKeys.length;i++){
+//     changeKeys[i].innerText = shiftKeys[i]
+// }
 
