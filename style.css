@@ -37,7 +37,6 @@ button {
     border-radius: 6px;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 15px 20px;
     font-size: 20px;
     outline: none;
     border: solid 2px pink;
@@ -45,6 +44,7 @@ button {
     width: 64px;
     margin-left: 8px;
     box-shadow: 5px 5px 5px 2px grey;
+    text-align: center;
 }
 button.bsp {
     width: 130px;
@@ -140,4 +140,52 @@ i{
 }
 .at{
     cursor: pointer;
+}
+h1.heading {
+    text-align: center;
+    margin-top: 70px;
+    color: #00ffd0;
+    font-size: 46px;
+}
+.keyboard{
+    display: none;
+}
+.welcome{
+    display: none;
+}
+select#language {
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 600;
+    color: blue;
+    background-color: #44ff8f;
+    padding: 10px 30px;
+    margin-left: 530px;
+    margin-top: 40px;
+    border: solid 2px #ffd400;
+    box-shadow: 7px 5px 10px 3px;
+    cursor: pointer;
+}
+
+input#go {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px 58px;
+    font-size: 20px;
+    border: solid 3px #fbe909;
+    background-color: #00ff93;
+    color: blue;
+    font-family: cursive;
+    font-weight: bold;
+    cursor: pointer;
+}
+input#go:hover{
+    transition: 1s;
+    color: #00ff93;
+    background-color:rgba(11, 41, 236, 0.93) ;
+    cursor: pointer;
+}
+.showDiv{
+    display: block;
 }
