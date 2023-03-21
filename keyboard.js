@@ -158,8 +158,14 @@ for (let i = 0; i < buttons.length; i++) {
         } else if (buttons[i].innerText == "Emojs") {
             output.value += ""
         }
+        else if(buttons[i].classList.contains("enMc")){
+            englishvoice()
+        }
+        else if(buttons[i].classList.contains("TaMc")){
+            tamilvoice()
+        }
         else {
-            output.value += e.target.innerText
+                output.value += e.target.innerText
         }
     })
 }
@@ -277,3 +283,56 @@ function disable() {
     }
 }
 
+function englishvoice() {
+    let speech = "fine";
+    window.SpeechRecognition = window.SpeechRecognition
+                    || window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+
+    recognition.addEventListener('result', (e) => {
+        const transcript = Array.from(e.results)
+            .map(outputs => outputs[0])
+            .map(outputs => outputs.transcript)
+            .join('')
+
+            output.value += transcript
+    });
+
+    if (speech == "fine") {
+        recognition.start();
+        recognition.addEventListener('end', recognition.start);
+    }
+
+}
+
+function tamilvoice() {
+    let speech = "fine";
+    window.SpeechRecognition = window.SpeechRecognition
+                    || window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+   console.log(recognition);
+    recognition.interimResults = true;
+    recognition.lang = "ta-IN";
+
+
+    recognition.addEventListener('result', (e) => {
+        const transcript = Array.from(e.results)
+            .map(outputs => outputs[0])
+            .map(outputs => outputs.transcript)
+            .join('')
+
+        output.value += transcript
+    });
+
+    if (speech == "fine") {
+        recognition.start();
+        recognition.addEventListener('end', recognition.start);
+    }
+
+}
