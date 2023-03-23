@@ -158,17 +158,18 @@ for (let i = 0; i < buttons.length; i++) {
         } else if (buttons[i].innerText == "Emojs") {
             output.value += ""
         }
-        else if(buttons[i].classList.contains("enMc")){
-            englishvoice()
-        }
-        else if(buttons[i].classList.contains("TaMc")){
-            tamilvoice()
-        }
         else {
                 output.value += e.target.innerText
         }
     })
 }
+
+document.querySelector(".enMc").addEventListener("click",()=>{
+    englishvoice()
+})
+document.querySelector(".TaMc").addEventListener("click",()=>{
+    tamilvoice()
+})
 
 window.addEventListener("keydown", (e) => {
 
