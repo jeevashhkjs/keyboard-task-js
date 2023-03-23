@@ -46,6 +46,19 @@ button {
     box-shadow: 5px 5px 5px 2px grey;
     text-align: center;
 }
+.input{
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 20px;
+    outline: none;
+    border: solid 2px pink;
+    height: 60px;
+    width: 64px;
+    margin-left: 8px;
+    box-shadow: 5px 5px 5px 2px grey;
+    text-align: center;
+}
 button.bsp {
     width: 130px;
 }
